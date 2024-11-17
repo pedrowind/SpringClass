@@ -18,18 +18,18 @@ public class Crimes {
     @Column(columnDefinition = "TEXT")
     private String descricaoCrime;
     private Date dataCrime;
-    private String heroiResposavel;
+    private String heroiResponsavel;
     private Integer severidadeCrime;
 
     public Crimes () {}
 
-    public Crimes(Integer crimeId, String nomeCrime, Integer severidadeCrime, String descricaoCrime, Date dataCrime, String heroiResposavel) {
+    public Crimes(Integer crimeId, String nomeCrime, Integer severidadeCrime, String descricaoCrime, Date dataCrime, String heroiResponsavel) {
         this.crimeId = crimeId;
         this.nomeCrime = nomeCrime;
         this.severidadeCrime = severidadeCrime;
         this.descricaoCrime = descricaoCrime;
         this.dataCrime = dataCrime;
-        this.heroiResposavel = heroiResposavel;
+        this.heroiResponsavel = heroiResponsavel;
     }
 
     public Integer getCrimeId() {
@@ -56,12 +56,12 @@ public class Crimes {
         this.severidadeCrime = severidadeCrime;
     }
 
-    public String getHeroiResposavel() {
-        return heroiResposavel;
+    public String getheroiResponsavel() {
+        return heroiResponsavel;
     }
 
-    public void setHeroiResposavel(String heroiResposavel) {
-        this.heroiResposavel = heroiResposavel;
+    public void setheroiResponsavel(String heroiResponsavel) {
+        this.heroiResponsavel = heroiResponsavel;
     }
 
     public Date getDataCrime() {
