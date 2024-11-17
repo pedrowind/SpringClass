@@ -1,0 +1,44 @@
+header {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header .logoLocal {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo {
+    width: 70%;
+    height: auto;
+}
+
+header .menu {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul {
+    list-style: none; /* Remove os marcadores de lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Alinha os itens horizontalmente */
+}
+
+header nav ul li {
+    margin-right: 5px; /* Espaçamento entre os itens */
+}
+
+header nav ul li a {
+    text-decoration: none; /* Remove a decoração dos links */
+    color: inherit; /* Mantém a cor do texto herdada */
+}
