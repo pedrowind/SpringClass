@@ -14,7 +14,7 @@ public class Heroi {
     private Integer heroiId;
     private String nome;
     private Integer idade;
-    private char sexo;
+    private String sexo;
     private String caracteristicasFisicas;
 
     @Column(columnDefinition = "TEXT")
@@ -31,7 +31,7 @@ public class Heroi {
     public Heroi() {}
 
     public Heroi(String nome, String historicoBatalhas, String status, Integer popularidade, Integer idade,
-                 char sexo, String caracteristicasFisicas, String poderes, Integer forca) {
+                 String sexo, String caracteristicasFisicas, String poderes, Integer forca) {
         this.nome = nome;
         this.historicoBatalhas = historicoBatalhas;
         this.status = status;
@@ -99,11 +99,11 @@ public class Heroi {
         this.caracteristicasFisicas = caracteristicasFisicas;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
