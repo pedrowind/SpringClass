@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import paradigmas.theboys.dto.CrimesDTO;
 import paradigmas.theboys.entities.Crimes;
-import paradigmas.theboys.entities.Missoes;
+import paradigmas.theboys.entities.Heroi;
 import paradigmas.theboys.repositories.CrimesRepository;
+import paradigmas.theboys.services.CrimesService;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -17,6 +20,9 @@ public class CrimesController {
 
     @Autowired
     private CrimesRepository crimesRepository;
+
+    @Autowired
+    private CrimesService crimesService;
 
     @PostMapping
     public ResponseEntity<Crimes> criarCrime(@RequestBody Crimes crimes) {
@@ -60,5 +66,23 @@ public class CrimesController {
         } catch (Exception e) {
             return ResponseEntity.status(500).build();
         }
+    }
+
+    @GetMapping("/heroi/{heroiResponsavel}")
+    public ResponseEntity<List<CrimesDTO>> buscarCrimesPorHeroi(@PathVariable String heroiResponsavel) {
+        List<CrimesDTO> crimes = crimesService.buscarCrimesPorHeroi(heroiResponsavel);
+        if (crimes.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(crimes);
+    }
+
+    @GetMapping("/severidade/{severidade}")
+    public ResponseEntity<List<CrimesDTO>> buscarPorSeveridade(@PathVariable Integer severidade) {
+        List<CrimesDTO> resultados = crimesService.buscarPorSeveridadeCrime(severidade);
+        if (resultados.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(resultados);
     }
 }

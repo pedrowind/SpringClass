@@ -1,53 +1,34 @@
-package paradigmas.theboys.entities;
+package paradigmas.theboys.dto;
 
-import jakarta.persistence.*;
-import java.util.Objects;
+import org.springframework.beans.BeanUtils;
+import paradigmas.theboys.entities.Crimes;
+import paradigmas.theboys.entities.Heroi;
 
+public class HeroiDTO {
 
-@Entity
-@Table(name = "tb_heroi")
-public class Heroi {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer heroiId;
     private String nome;
     private Integer idade;
     private String sexo;
     private String caracteristicasFisicas;
-
-    @Column(columnDefinition = "TEXT")
     private String poderes;
     private Integer forca;
-
-    @Column(columnDefinition = "TEXT")
     private Integer popularidade;
     private String status;
-
-    @Column(columnDefinition = "TEXT")
     private String historicoBatalhas;
 
-    public Heroi() {}
+    public HeroiDTO() {}
 
-    public Heroi(String nome, String historicoBatalhas, String status, Integer popularidade, Integer idade,
-                 String sexo, String caracteristicasFisicas, String poderes, Integer forca) {
-        this.nome = nome;
-        this.historicoBatalhas = historicoBatalhas;
-        this.status = status;
-        this.popularidade = popularidade;
-        this.idade = idade;
-        this.sexo = sexo;
-        this.caracteristicasFisicas = caracteristicasFisicas;
-        this.poderes = poderes;
-        this.forca = forca;
+    public HeroiDTO(Heroi entity) {
+        BeanUtils.copyProperties(entity, this);
     }
 
-    public String getNome() {
-        return nome;
+    public Integer getHeroiId() {
+        return heroiId;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setHeroiId(Integer heroiId) {
+        this.heroiId = heroiId;
     }
 
     public String getHistoricoBatalhas() {
@@ -114,15 +95,11 @@ public class Heroi {
         this.idade = idade;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Heroi heroi = (Heroi) o;
-        return Objects.equals(nome, heroi.nome);
+    public String getNome() {
+        return nome;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(nome);
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
