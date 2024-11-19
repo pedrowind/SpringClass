@@ -27,7 +27,7 @@ header .logo {
 header .menu {
     width: 70%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }
 
 header nav ul {
