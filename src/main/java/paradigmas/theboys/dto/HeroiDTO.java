@@ -1,7 +1,6 @@
 package paradigmas.theboys.dto;
 
 import org.springframework.beans.BeanUtils;
-import paradigmas.theboys.entities.Crimes;
 import paradigmas.theboys.entities.Heroi;
 
 public class HeroiDTO {

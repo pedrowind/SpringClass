@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import paradigmas.theboys.dto.CrimesDTO;
 import paradigmas.theboys.entities.Crimes;
-import paradigmas.theboys.entities.Heroi;
 import paradigmas.theboys.repositories.CrimesRepository;
 import paradigmas.theboys.services.CrimesService;
 
@@ -25,13 +24,14 @@ public class CrimesController {
     private CrimesService crimesService;
 
     @PostMapping
-    public ResponseEntity<Crimes> criarCrime(@RequestBody Crimes crimes) {
+    public ResponseEntity<CrimesDTO> criarCrime(@RequestBody Crimes crimes) {
         Crimes novoCrime = crimesRepository.save(crimes);
-        return ResponseEntity.ok(novoCrime);
+        CrimesDTO novoCrimeDTO = new CrimesDTO(novoCrime);
+        return ResponseEntity.ok(novoCrimeDTO);
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Crimes> atualizarCrimes(@PathVariable Long id, @RequestBody Map<String, Object> camposAtualizados) {
+    public ResponseEntity<CrimesDTO> atualizarCrimes(@PathVariable Long id, @RequestBody Map<String, Object> camposAtualizados) {
         try {
             Crimes crimesExistente = crimesRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Crime não encontrado com o ID: " + id));
@@ -45,10 +45,10 @@ public class CrimesController {
                         crimesExistente.setDescricaoCrime((String) valor);
                         break;
                     case "dataCrime":
-                        crimesExistente.setDataCrime((Date) valor);;
+                        crimesExistente.setDataCrime((Date) valor);
                         break;
                     case "heroiResponsavel":
-                        crimesExistente.setheroiResponsavel((String) valor);;
+                        crimesExistente.setheroiResponsavel((String) valor);
                         break;
                     case "severidadeCrime":
                         crimesExistente.setSeveridadeCrime((Integer) valor);
@@ -59,13 +59,40 @@ public class CrimesController {
             });
 
             Crimes crimesSalvo = crimesRepository.save(crimesExistente);
-            return ResponseEntity.ok(crimesSalvo);
+            CrimesDTO crimesSalvoDTO = new CrimesDTO(crimesSalvo);
+            return ResponseEntity.ok(crimesSalvoDTO);
 
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         } catch (Exception e) {
             return ResponseEntity.status(500).build();
         }
+    }
+
+    @DeleteMapping("/deletarCrimes/{crimeId}")
+    public ResponseEntity<CrimesDTO> deletarCrimes(@PathVariable Long crimeId) {
+        try {
+            if (!crimesRepository.existsById(crimeId)) {
+                return ResponseEntity.notFound().build();
+            }
+
+            crimesRepository.deleteById(crimeId);
+
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(500).build();
+        }
+    }
+
+    @GetMapping("/buscarTodosCrimes")
+    public ResponseEntity<List<CrimesDTO>> buscarTodosCrimes() {
+        List<Crimes> crimes = crimesRepository.findAll();
+
+        List<CrimesDTO> crimesDTO = crimes.stream()
+                .map(CrimesDTO::new)
+                .toList();
+
+        return ResponseEntity.ok(crimesDTO);
     }
 
     @GetMapping("/heroi/{heroiResponsavel}")

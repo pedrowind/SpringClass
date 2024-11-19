@@ -29,8 +29,9 @@ public class Heroi {
 
     public Heroi() {}
 
-    public Heroi(String nome, String historicoBatalhas, String status, Integer popularidade, Integer idade,
+    public Heroi(Integer heroiId, String nome, String historicoBatalhas, String status, Integer popularidade, Integer idade,
                  String sexo, String caracteristicasFisicas, String poderes, Integer forca) {
+        this.heroiId = heroiId;
         this.nome = nome;
         this.historicoBatalhas = historicoBatalhas;
         this.status = status;
@@ -40,6 +41,14 @@ public class Heroi {
         this.caracteristicasFisicas = caracteristicasFisicas;
         this.poderes = poderes;
         this.forca = forca;
+    }
+
+    public Integer getHeroiId() {
+        return heroiId;
+    }
+
+    public void setHeroiId(Integer heroiId) {
+        this.heroiId = heroiId;
     }
 
     public String getNome() {
