@@ -1,3 +1,61 @@
 body {
+    background-color: darkgrey;
+}
+
+
+.containerCards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaçamento entre os cards */
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.cards {
+    width: 250px; /* Largura fixa do card */
+    background-color: white;
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease; /* Efeito de hover */
+}
+
+.cards:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente no hover */
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-text {
+    padding: 15px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.carousel{
+    box-shadow:  0 0 10px #000000;
     background-color: black;
+    width: 98%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 3em;
+}
+
+.carousel-inner {
+    height: 500px; /* Altura fixa para o carrossel */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.carousel-inner img {
+    object-fit: cover; /* Ajusta a imagem para preencher o espaço */
+    width: 100%; /* Garante que a imagem ocupe toda a largura */
+    height: 100%; /* Ajusta a altura da imagem ao container */
 }

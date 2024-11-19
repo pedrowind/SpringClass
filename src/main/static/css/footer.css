@@ -1,0 +1,22 @@
+footer {
+    background-color: #333; /* Cor de fundo escura */
+    color: #fff; /* Texto branco */
+    text-align: center; /* Centraliza o conteúdo */
+    padding: 20px 10px; /* Espaçamento interno */
+    border-top: 3px solid #000000; /* Borda no topo do footer */
+    position: relative;
+    margin-top:2em;
+}
+
+footer .logofooter {
+    width: 50px; /* Ajusta o tamanho da logo */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block;
+    margin: 0 auto 10px; /* Centraliza a imagem e adiciona espaço abaixo */
+}
+
+footer p {
+    font-size: 14px; /* Tamanho da fonte do texto */
+    margin: 0; /* Remove margens adicionais */
+    font-family: Arial, sans-serif; /* Fonte limpa e legível */
+}
