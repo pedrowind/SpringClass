@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/src/main/static/css/header.css" />
+    <link rel="stylesheet" href="/src/main/static/css/heroisMain.css" />
+    <link rel="stylesheet" href="/src/main/static/css/footer.css" />
+    <title>Heróis</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="logoLocal">
+        <img
+          class="logo"
+          src="/src/main/static/img/logo-Vought.png"
+          alt="logo-Vought"
+        />
+      </div>
+    </header>
+
+    <main>
+      <div class="grid-container">
+        <a href="/src/main/templates/criacao.html">
+          <div class="card">
+            <img
+              style="object-position: 32% center"
+              src="/src/main/static/img/criarHeroi.webp"
+              alt="criacao"
+              class="image"
+            />
+
+            <div class="card-bottom">
+              <h3>Criar Herói</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="/src/main/templates/edicao.html">
+          <div class="card">
+            <img
+              style="object-position: 15% center"
+              src="/src/main/static/img/editarHeroi.png"
+              alt="edicao"
+              class="image"
+            />
+
+            <div class="card-bottom">
+              <h3>Editar Herói</h3>
+            </div>
+          </div>
+        </a>
+
+        <a href="/src/main/templates/consulta.html">
+          <div class="card">
+            <img
+              style="object-position: 20% center"
+              src="/src/main/static/img/buscarHeroi.png"
+              alt="consulta"
+              class="image"
+            />
+            <div class="card-bottom">
+              <h3>Buscar Herói</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
