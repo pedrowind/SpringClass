@@ -6,7 +6,10 @@ header {
     color: white;
     width: 100%;
     margin: 0;
+    margin-bottom: 2em;
     padding: 0;
+    border: 1px white solid;
+
 }
 
 header .logoLocal {
@@ -35,7 +38,7 @@ header nav ul {
 }
 
 header nav ul li {
-    margin-right: 5px; /* Espaçamento entre os itens */
+    margin-right: 3em; /* Espaçamento entre os itens */
 }
 
 header nav ul li a {
