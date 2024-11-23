@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/main/static/css/footer.css">
+    <link rel="stylesheet" href="/src/main/static/css/header.css">
+    <link rel="stylesheet" href="/src/main/static/css/batalhasMain.css">
+    <title>Seleção de Personagens</title>
+</head>
+<body>
+    <header>
+        <div class="logoLocal">
+            <img class="logo" src="/src/main/static/img/logo-Vought.png" alt="logo-Vought">
+        </div>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="#">Heróis</a></li>
+                    <li><a href="#">Crimes</a></li>
+                    <li><a href="#">Missões</a></li>
+                    <li><a href="#">Simulador</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="sidebar" id="leftSidebar">
+                <h3>Player 1</h3>
+            </div>
+            <div class="grid" id="characterGrid">
+                <img src="https://via.placeholder.com/100" alt="Character 1">
+                <img src="https://via.placeholder.com/100" alt="Character 2">
+                <img src="https://via.placeholder.com/100" alt="Character 3">
+                <img src="https://via.placeholder.com/100" alt="Character 4">
+                <img src="https://via.placeholder.com/100" alt="Character 5">
+                <img src="https://via.placeholder.com/100" alt="Character 6">
+                <img src="https://via.placeholder.com/100" alt="Character 7">
+                <img src="https://via.placeholder.com/100" alt="Character 8">
+                <img src="https://via.placeholder.com/100" alt="Character 9">
+                <img src="https://via.placeholder.com/100" alt="Character 10">
+            </div>
+            <div class="sidebar" id="rightSidebar">
+                <h3>Player 2</h3>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <img class="logofooter" src="/src/main/static/img/logo_Vought_Icone.png" alt="logo-Vought">
+        <p>copyrigth &copy; 2024</p>
+    </footer>
+
+    <script>
+        const grid = document.getElementById('characterGrid');
+        const leftSidebar = document.getElementById('leftSidebar');
+        const rightSidebar = document.getElementById('rightSidebar');
+        const MAX_SELECTION = 2; // Limite de 2 personagens
+        let selectedCharacters = []; // Array para armazenar personagens selecionados
+    
+        // Clique nos personagens da grade
+        grid.addEventListener('click', (e) => {
+            if (e.target.tagName === 'IMG') {
+                const img = e.target;
+    
+                if (img.classList.contains('selected')) {
+                    // Se o personagem já está selecionado, remove ele
+                    img.classList.remove('selected');
+                    removeCharacter(img);
+                } else {
+                    // Se o limite de seleção não foi atingido, adiciona
+                    if (selectedCharacters.length < MAX_SELECTION) {
+                        img.classList.add('selected');
+                        addCharacter(img);
+                    } else {
+                        alert('Você só pode selecionar até 2 personagens.');
+                    }
+                }
+            }
+        });
+    
+        // Função para adicionar personagem
+        function addCharacter(img) {
+            const character = {
+                src: img.src,
+                alt: img.alt
+            };
+    
+            selectedCharacters.push(character);
+    
+            // Atualiza a exibição nas barras laterais
+            updateSidebars();
+        }
+    
+        // Função para remover personagem
+        function removeCharacter(img) {
+            // Remove o personagem do array de selecionados
+            selectedCharacters = selectedCharacters.filter(char => char.src !== img.src);
+    
+            // Atualiza as barras laterais
+            updateSidebars();
+        }
+    
+        // Atualiza as barras laterais
+        function updateSidebars() {
+            // Limpa as barras laterais
+            leftSidebar.innerHTML = '<h3>Player 1</h3>';
+            rightSidebar.innerHTML = '<h3>Player 2</h3>';
+    
+            // Adiciona o personagem à barra lateral esquerda
+            if (selectedCharacters[0]) {
+                leftSidebar.appendChild(createCharacterElement(selectedCharacters[0]));
+            }
+    
+            // Adiciona o personagem à barra lateral direita
+            if (selectedCharacters[1]) {
+                rightSidebar.appendChild(createCharacterElement(selectedCharacters[1]));
+            }
+        }
+    
+        // Cria o elemento de personagem para exibir na barra lateral
+        function createCharacterElement(character) {
+            const characterDiv = document.createElement('div');
+            characterDiv.classList.add('character');
+    
+            // Imagem do personagem
+            const img = document.createElement('img');
+            img.src = character.src;
+            img.alt = character.alt;
+    
+            // Nome do personagem
+            const name = document.createElement('span');
+            name.textContent = character.alt;
+    
+            // Adiciona evento de clique para remoção
+            characterDiv.addEventListener('click', () => {
+                const gridImage = [...grid.querySelectorAll('img')].find(image => image.src === character.src);
+                if (gridImage) gridImage.classList.remove('selected'); // Remove a seleção da grade
+                removeCharacter(gridImage);
+            });
+    
+            // Adiciona a imagem e o nome ao container do personagem
+            characterDiv.appendChild(img);
+            characterDiv.appendChild(name);
+    
+            return characterDiv;
+        }
+    </script>
+       
+</body>
+</html>
