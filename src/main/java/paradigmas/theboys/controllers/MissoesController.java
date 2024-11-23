@@ -68,7 +68,7 @@ public class MissoesController {
         }
     }
 
-    @DeleteMapping("/deletarMissoes/{missaoId}")
+    @DeleteMapping("/{missaoId}")
     public ResponseEntity<MissoesDTO> deletarMissoes (@PathVariable Long missaoId) {
         try {
             if (!missoesRepository.existsById(missaoId)) {
@@ -83,7 +83,7 @@ public class MissoesController {
         }
     }
 
-    @GetMapping("/buscarTodasMissoes")
+    @GetMapping
     public ResponseEntity<List<MissoesDTO>> buscarTodasMissoes() {
         List<Missoes> missoes = missoesRepository.findAll();
 
@@ -94,7 +94,7 @@ public class MissoesController {
         return ResponseEntity.ok(missoesDTO);
     }
 
-    @GetMapping("/buscarMissoesPorDificuldade/{dificuldadeMissao}")
+    @GetMapping("/{dificuldadeMissao}")
     public ResponseEntity<List<MissoesDTO>> buscarMissoesPorDificuldade(@PathVariable Integer dificuldadeMissao) {
         List<Missoes> missoes = missoesRepository.findMissoesByDificuldadeMissao(dificuldadeMissao);
 

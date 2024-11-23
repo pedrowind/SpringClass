@@ -29,7 +29,7 @@ public class HeroiController {
         return ResponseEntity.status(201).body(heroiDTO);
     }
 
-    @PostMapping("/atualizarHeroi/{heroiId}")
+    @PatchMapping("/atualizarHeroi/{heroiId}")
     public ResponseEntity<HeroiDTO> atualizarHeroi(@PathVariable Integer heroiId, @RequestBody Map<String, Object> camposAtualizados) {
         try {
             Heroi heroiExistente = heroiRepository.findById(heroiId)
@@ -80,7 +80,7 @@ public class HeroiController {
         }
     }
 
-    @DeleteMapping("/deletarHeroi/{heroiId}")
+    @DeleteMapping("/{heroiId}")
     public ResponseEntity<Void> deletarHeroi(@PathVariable Integer heroiId) {
         try {
             if (!heroiRepository.existsById(heroiId)) {
@@ -95,7 +95,7 @@ public class HeroiController {
         }
     }
 
-    @GetMapping("/buscarHerois")
+    @GetMapping
     public ResponseEntity<List<HeroiDTO>> buscarTodosHerois() {
         List<Heroi> herois = heroiRepository.findAll();
 

@@ -69,7 +69,7 @@ public class CrimesController {
         }
     }
 
-    @DeleteMapping("/deletarCrimes/{crimeId}")
+    @DeleteMapping("/{crimeId}")
     public ResponseEntity<CrimesDTO> deletarCrimes(@PathVariable Long crimeId) {
         try {
             if (!crimesRepository.existsById(crimeId)) {
@@ -84,7 +84,7 @@ public class CrimesController {
         }
     }
 
-    @GetMapping("/buscarTodosCrimes")
+    @GetMapping
     public ResponseEntity<List<CrimesDTO>> buscarTodosCrimes() {
         List<Crimes> crimes = crimesRepository.findAll();
 
