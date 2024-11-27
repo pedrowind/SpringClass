@@ -40,12 +40,14 @@ main {
 .grid {
     flex: 3;
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 10px;
     padding: 10px;
+    justify-items: center;
     border: 2px solid #aaa;
     background-color: #fff;
+
 }
 
 .grid img {
@@ -58,7 +60,7 @@ main {
 }
 
 .grid img.selected {
-    border-color: #007bff;
+    border-color: #2600ff;
 }
 
 .sidebar h3 {
@@ -67,8 +69,24 @@ main {
 
 .sidebar .character {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin: 5px 0;
+    gap: 10px;
+}
+
+.sidebar .character img {
+    width: 250px; /* Tamanho grande para a imagem */
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #333; /* Destaque para a imagem */
+}
+
+.sidebar .character span {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize; /* Capitaliza o texto */
 }
 
 .sidebar img {
