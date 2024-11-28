@@ -95,3 +95,104 @@ main {
     object-fit: cover;
     margin-right: 10px;
 }
+
+.menu{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.botoes {
+    margin-top: 9px;
+    padding: 1px;
+    background-color: #2600ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@media (max-width: 400px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .sidebar .character img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .sidebar .character span {
+        font-size: 14px;
+    }
+}
+
+/* Para telas com largura máxima de 700px */
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .sidebar .character img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .sidebar .character span {
+        font-size: 16px;
+    }
+}
+
+/* Para telas com largura máxima de 1080px */
+@media (max-width: 1080px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .sidebar .character img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .sidebar .character span {
+        font-size: 18px;
+    }
+}
+
+/* Para telas acima de 1440px (opção adicional) */
+@media (min-width: 1440px) {
+    main {
+        width: 80%;
+    }
+
+    .grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .sidebar .character img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .sidebar .character span {
+        font-size: 24px;
+    }
+}
