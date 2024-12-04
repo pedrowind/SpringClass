@@ -34,49 +34,292 @@
 
     <main>
       <div class="grid-container">
-        <a class="card-link" href="/src/main/templates/criacao.html">
-          <div class="card">
-            <img
-              style="object-position: 32% center"
-              src="/src/main/static/img/criarHeroi.webp"
-              alt="criacao"
-              class="image"
-            />
+        <div class="card">
+          <img
+            style="object-position: 32% center"
+            src="/src/main/static/img/criarHeroi.webp"
+            alt="criacao"
+            class="image"
+          />
 
-            <div class="card-bottom">
-              <h3>Criar Herói</h3>
-            </div>
+          <div class="card-bottom">
+            <h3>Criar Herói</h3>
+
+            <form id="formCriar" action="" method="post">
+              <hr />
+
+              <label for="nomeCriar">Nome:</label>
+              <input required id="nomeCriar" type="text" placeholder="Nome" />
+
+              <label for="idadeCriar">Idade:</label>
+              <input
+                required
+                id="idadeCriar"
+                class="inputNumber"
+                name="idade"
+                type="number"
+                placeholder="18"
+              />
+
+              <hr />
+
+              <label for="sexoCheckbox">Sexo:</label>
+              <div id="sexoCheckbox">
+                <input
+                  required
+                  type="radio"
+                  name="sexo"
+                  value="M"
+                  id="sexoMasculino"
+                />
+                <label for="sexoMasculino">Masculino</label>
+
+                <br />
+
+                <input
+                  required
+                  type="radio"
+                  name="sexo"
+                  value="F"
+                  id="sexoFeminino"
+                />
+                <label for="sexoFeminino">Feminino</label>
+              </div>
+
+              <hr />
+
+              <label for="poderesCriar">Poderes:</label>
+              <input
+                required
+                id="poderesCriar"
+                type="text"
+                placeholder="Voar, super-força, visão raio-x..."
+              />
+
+              <label for="caracteristicas">Características físicas:</label>
+              <textarea
+                required
+                id="caracteristicas"
+                cols="30"
+                rows="4"
+                placeholder="Loiro(a), alto(a), forte..."
+              ></textarea>
+
+              <hr />
+
+              <label for="seletorNivelForca">Nível de força:</label>
+              <div id="seletorNivelForca">
+                <input
+                  type="range"
+                  value="50"
+                  min="0"
+                  max="100"
+                  oninput="this.nextElementSibling.value = this.value"
+                />
+
+                <input
+                  required
+                  type="number"
+                  id="nivelForca"
+                  class="inputNumber"
+                  value="50"
+                  min="0"
+                  max="100"
+                  oninput="this.previousElementSibling.value = this.value"
+                />
+              </div>
+
+              <label for="seletorPopularidade">Popularidade:</label>
+              <div id="seletorPopularidade">
+                <input
+                  type="range"
+                  value="50"
+                  min="0"
+                  max="100"
+                  oninput="this.nextElementSibling.value = this.value"
+                />
+
+                <input
+                  required
+                  type="number"
+                  id="nivelPopularidade"
+                  class="inputNumber"
+                  value="50"
+                  min="0"
+                  max="100"
+                  oninput="this.previousElementSibling.value = this.value"
+                />
+              </div>
+
+              <hr />
+
+              <label for="dropdown">Status</label>
+              <select required name="" id="dropdown">
+                <option value="">Selecione o status do herói</option>
+                <option value="1">Ativo</option>
+                <option value="2">Inativo</option>
+                <option value="3">Banido</option>
+              </select>
+
+              <hr />
+
+              <button type="submit">Criar</button>
+            </form>
           </div>
-        </a>
+        </div>
 
-        <a class="card-link" href="/src/main/templates/edicao.html">
-          <div class="card">
-            <img
-              style="object-position: 42% center"
-              src="/src/main/static/img/editarHeroi.png"
-              alt="edicao"
-              class="image"
-            />
+        <div class="card">
+          <img
+            style="object-position: 42% center"
+            src="/src/main/static/img/editarHeroi.png"
+            alt="edicao"
+            class="image"
+          />
 
-            <div class="card-bottom">
-              <h3>Editar Herói</h3>
-            </div>
+          <div class="card-bottom">
+            <h3>Editar Herói</h3>
+
+            <form id="formEditar" action="" method="post">
+              <hr />
+
+              <label for="nomeSeletorDropdown"> Herói a ser editado: </label>
+              <select required name="" id="nomeSeletorDropdown">
+                <option value="">Selecione um herói</option>
+              </select>
+
+              <hr />
+
+              <label for="nomeEditar">Nome:</label>
+              <input required id="nomeEditar" type="text" placeholder="Nome" />
+
+              <label for="idadeEditar">Idade:</label>
+              <input
+                required
+                id="idadeEditar"
+                class="inputNumber"
+                name="idade"
+                type="number"
+                placeholder="18"
+              />
+
+              <hr />
+
+              <label for="sexoCheckbox">Sexo:</label>
+              <div id="sexoCheckbox">
+                <input
+                  required
+                  type="radio"
+                  name="sexo"
+                  value="M"
+                  id="sexoMasculino"
+                />
+                <label for="sexoMasculino">Masculino</label>
+
+                <br />
+
+                <input
+                  required
+                  type="radio"
+                  name="sexo"
+                  value="F"
+                  id="sexoFeminino"
+                />
+                <label for="sexoFeminino">Feminino</label>
+              </div>
+
+              <hr />
+
+              <label for="poderesEditar">Poderes:</label>
+              <input
+                required
+                id="poderesEditar"
+                type="text"
+                placeholder="Voar, super-força, visão raio-x..."
+              />
+
+              <label for="caracteristicas">Características físicas:</label>
+              <textarea
+                required
+                id="caracteristicas"
+                cols="30"
+                rows="4"
+                placeholder="Loiro(a), alto(a), forte..."
+              ></textarea>
+
+              <hr />
+
+              <label for="seletorNivelForca">Nível de força:</label>
+              <div id="seletorNivelForca">
+                <input
+                  type="range"
+                  value="50"
+                  min="0"
+                  max="100"
+                  oninput="this.nextElementSibling.value = this.value"
+                />
+
+                <input
+                  required
+                  type="number"
+                  id="nivelForca"
+                  class="inputNumber"
+                  value="50"
+                  min="0"
+                  max="100"
+                  oninput="this.previousElementSibling.value = this.value"
+                />
+              </div>
+
+              <label for="seletorPopularidade">Popularidade:</label>
+              <div id="seletorPopularidade">
+                <input
+                  type="range"
+                  value="50"
+                  min="0"
+                  max="100"
+                  oninput="this.nextElementSibling.value = this.value"
+                />
+
+                <input
+                  required
+                  type="number"
+                  id="nivelPopularidade"
+                  class="inputNumber"
+                  value="50"
+                  min="0"
+                  max="100"
+                  oninput="this.previousElementSibling.value = this.value"
+                />
+              </div>
+
+              <hr />
+
+              <label for="dropdown">Status</label>
+              <select required name="" id="dropdown">
+                <option value="">Selecione o status do herói</option>
+                <option value="1">Ativo</option>
+                <option value="2">Inativo</option>
+                <option value="3">Banido</option>
+              </select>
+
+              <hr />
+
+              <button type="submit">Editar</button>
+            </form>
           </div>
-        </a>
-
-        <a class="card-link" href="/src/main/templates/consulta.html">
-          <div class="card">
-            <img
-              style="object-position: 68% center"
-              src="/src/main/static/img/buscarHeroi.png"
-              alt="consulta"
-              class="image"
-            />
-            <div class="card-bottom">
-              <h3>Buscar Herói</h3>
-            </div>
+        </div>
+        <div class="card">
+          <img
+            style="object-position: 68% center"
+            src="/src/main/static/img/buscarHeroi.png"
+            alt="consulta"
+            class="image"
+          />
+          <div class="card-bottom">
+            <h3>Buscar Herói</h3>
+            <hr />
           </div>
-        </a>
+        </div>
       </div>
     </main>
     <footer>
@@ -87,5 +330,7 @@
       />
       <p>copyrigth &copy; 2024</p>
     </footer>
+
+    <script src="/src/main/static/scripts/heroes.js"></script>
   </body>
 </html>
