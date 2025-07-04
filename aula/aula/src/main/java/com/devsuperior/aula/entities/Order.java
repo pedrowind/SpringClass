@@ -31,10 +31,5 @@ public class Order {
         this.basic = basic;
     }
 
-    public Order() {
-        Random random = new Random();
-        this.code = random.nextInt(1000);
-        this.basic = random.nextDouble(500);
-        this.discount = random.nextInt(36);
-    }
+    public Order() {}
 }
