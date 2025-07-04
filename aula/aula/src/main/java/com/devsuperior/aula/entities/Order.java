@@ -5,6 +5,12 @@ public class Order {
     private Double basic;
     private Integer discount;
 
+    public Order(Integer code, Double basic, Integer discount) {
+        this.code = code;
+        this.basic = basic;
+        this.discount = discount;
+    }
+
     public Integer getCode() {
         return code;
     }
@@ -28,6 +34,4 @@ public class Order {
     public void setBasic(Double basic) {
         this.basic = basic;
     }
-
-    public Order() {}
 }
