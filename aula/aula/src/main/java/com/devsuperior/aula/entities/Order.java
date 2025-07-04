@@ -1,7 +1,5 @@
 package com.devsuperior.aula.entities;
 
-import java.util.Random;
-
 public class Order {
     private Integer code;
     private Double basic;
