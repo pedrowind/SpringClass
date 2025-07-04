@@ -23,13 +23,16 @@ public class AulaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		Order order = new Order();
-		Double total = orderService.total(order);
-		Double shipping = shippingService.calculateShipping(order.getBasic());
+		Order order1 = new Order(1034, 150.0, 20.0);
+		System.out.println("Pedido código " + order1.getCode());
+		System.out.println(Valor total: R$ " + orderService.total(order1));
 
-		System.out.println("Preço inicial: " + String.format("%.2f", order.getBasic()));
-		System.out.println("Total do pedido: " + String.format("%.2f", total));
-		System.out.println("Total do desconto: " + order.getDiscount() + "%");
-		System.out.println("Total do frete: " + String.format("%.2f", shipping));
+		Order order2 = new Order(2282, 800.0, 10.0);
+		System.out.println("Pedido código " + order1.getCode());
+		System.out.println(Valor total: R$ " + orderService.total(order1));
+
+		Order order1 = new Order(1309, 95.90, 0.0);
+		System.out.println("Pedido código " + order1.getCode());
+		System.out.println(Valor total: R$ " + orderService.total(order1));
 	}
 }
